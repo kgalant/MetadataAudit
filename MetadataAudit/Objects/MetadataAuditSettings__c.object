@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Consumer_Key__c</fullName>
+        <description>Connected App Consumer Key</description>
+        <externalId>false</externalId>
+        <label>Consumer Key</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Consumer_Secret__c</fullName>
+        <description>Connected App consumer secret</description>
+        <externalId>false</externalId>
+        <label>Consumer Secret</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Endpoint__c</fullName>
+        <description>URL to the token service, e.g. https://your-my-domain.my.salesforce.com/services/oauth2/token</description>
+        <externalId>false</externalId>
+        <inlineHelpText>URL to the token service, e.g. https://your-my-domain.my.salesforce.com/services/oauth2/token</inlineHelpText>
+        <label>Token service endpoint</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LastRunMetadataType__c</fullName>
+        <externalId>false</externalId>
+        <label>LastRunMetadataType</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Password__c</fullName>
+        <externalId>false</externalId>
+        <label>Run-as password</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Username__c</fullName>
+        <description>Username of the user to connect as</description>
+        <externalId>false</externalId>
+        <label>Run-as username</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>MetadataAuditSettings</label>
+    <visibility>Protected</visibility>
+</CustomObject>

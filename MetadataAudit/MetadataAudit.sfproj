@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{14080921-febe-4341-86bf-4f7e706593b6}</ProjectGuid>
+    <Login>kim@galant.info.home</Login>
+    <Password>TS6lHzO0MpK8LbJ8eQkjop6yyWC34hfH2u2YXsHvtXh6xSDLdcjK2TzyoVsla5JOvomx4yzsXlk=</Password>
+    <SecurityToken>onNgYKZxqSaLwRz565HwDn0zNB3VfETN6k8uLiqnYbT0S5Nl/qQorjUUvt7HW4pLknFHuY4720Ew0mrHpF5hiA==</SecurityToken>
+    <Domain />
+    <Environment>0</Environment>
+    <ApexVersion>34.0</ApexVersion>
+    <Name>MetadataAudit</Name>
+    <AssemblyName>MetadataAudit</AssemblyName>
+    <RootNamespace>MetadataAudit</RootNamespace>
+    <ProjectVersion>3</ProjectVersion>
+    <PackageVersion>0.27.5.4</PackageVersion>
+    <AreChangesInFileSystemEnabled>False</AreChangesInFileSystemEnabled>
+    <SyncOption>True</SyncOption>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Folder Include="AnonymousApex" />
+    <Folder Include="Classes" />
+    <Folder Include="Objects" />
+    <Folder Include="Soql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\MetadataAuditLogItemsSelector.cls">
+      <PhysicalRelativePath>Classes\MetadataAuditLogItemsSelector.cls</PhysicalRelativePath>
+      <SubType>Class</SubType>
+      <Id>01pb0000004wQQWAA2</Id>
+      <LastModifiedDateUtcTicks>131033363760000000</LastModifiedDateUtcTicks>
+      <Hash>+u2G2E/Nfvv1yVi7hLZ1Kg==</Hash>
+    </Compile>
+    <Compile Include="Classes\MetadataAuditLogQueueable.cls">
+      <PhysicalRelativePath>Classes\MetadataAuditLogQueueable.cls</PhysicalRelativePath>
+      <SubType>Class</SubType>
+      <Id>01pb0000004wQQbAAM</Id>
+      <LastModifiedDateUtcTicks>131054323370000000</LastModifiedDateUtcTicks>
+      <Hash>fupPfGb7RTH2AjFc6Smq1Q==</Hash>
+    </Compile>
+    <Compile Include="Classes\MetadataAuditLogService.cls">
+      <PhysicalRelativePath>Classes\MetadataAuditLogService.cls</PhysicalRelativePath>
+      <SubType>Class</SubType>
+      <Id>01pb0000004wQJpAAM</Id>
+      <LastModifiedDateUtcTicks>131038265990000000</LastModifiedDateUtcTicks>
+      <Hash>/ABx2cvWHLmXYO9qn6Ljhg==</Hash>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="Objects\MetadataAuditSettings__c.object">
+      <PhysicalRelativePath>Objects\MetadataAuditSettings__c.object</PhysicalRelativePath>
+      <SubType>Object</SubType>
+      <Id>01Ib0000001LzerEAC</Id>
+      <LastModifiedDateUtcTicks>131038217849232000</LastModifiedDateUtcTicks>
+      <Hash>vNSMoXtJ6pOcQmBnI9NE1g==</Hash>
+    </Object>
+    <Object Include="Objects\Metadata_Audit_Configuration__mdt.object">
+      <PhysicalRelativePath>Objects\Metadata_Audit_Configuration__mdt.object</PhysicalRelativePath>
+      <SubType>Object</SubType>
+      <Id>01Ib0000001LzewEAC</Id>
+      <LastModifiedDateUtcTicks>131038217849232000</LastModifiedDateUtcTicks>
+      <Hash>9XSLqCh37IFu2O37o5d2Qw==</Hash>
+    </Object>
+    <Object Include="Objects\Metadata_Audit_Log_Item__c.object">
+      <PhysicalRelativePath>Objects\Metadata_Audit_Log_Item__c.object</PhysicalRelativePath>
+      <SubType>Object</SubType>
+      <Id>01Ib0000001Lze8EAC</Id>
+      <LastModifiedDateUtcTicks>131038217849232000</LastModifiedDateUtcTicks>
+      <Hash>272T3Wpxz6Shh42tJ/rX7Q==</Hash>
+    </Object>
+    <Object Include="Objects\Metadata_Audit_Run_Log__c.object">
+      <PhysicalRelativePath>Objects\Metadata_Audit_Run_Log__c.object</PhysicalRelativePath>
+      <SubType>Object</SubType>
+      <Id>01Ib0000001LzemEAC</Id>
+      <LastModifiedDateUtcTicks>131038217849232000</LastModifiedDateUtcTicks>
+      <Hash>egNaL7FppnzP/ORmmlXPkQ==</Hash>
+    </Object>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Classes\MetadataAuditLogItemsSelector.cls-meta.xml">
+      <PhysicalRelativePath>Classes\MetadataAuditLogItemsSelector.cls-meta.xml</PhysicalRelativePath>
+      <SubType>Metadata</SubType>
+      <DependentUpon>Classes\MetadataAuditLogItemsSelector.cls</DependentUpon>
+      <LastModifiedDateUtcTicks>131033363760000000</LastModifiedDateUtcTicks>
+      <Hash>1L13F+k9MzlVYVkP4Ft7pw==</Hash>
+    </None>
+    <None Include="Classes\MetadataAuditLogQueueable.cls-meta.xml">
+      <PhysicalRelativePath>Classes\MetadataAuditLogQueueable.cls-meta.xml</PhysicalRelativePath>
+      <SubType>Metadata</SubType>
+      <DependentUpon>Classes\MetadataAuditLogQueueable.cls</DependentUpon>
+      <LastModifiedDateUtcTicks>131054322790000000</LastModifiedDateUtcTicks>
+      <Hash>0P+mmRTqd2SFGr3SONcOWQ==</Hash>
+    </None>
+    <None Include="Classes\MetadataAuditLogService.cls-meta.xml">
+      <PhysicalRelativePath>Classes\MetadataAuditLogService.cls-meta.xml</PhysicalRelativePath>
+      <SubType>Metadata</SubType>
+      <DependentUpon>Classes\MetadataAuditLogService.cls</DependentUpon>
+      <LastModifiedDateUtcTicks>131038249710000000</LastModifiedDateUtcTicks>
+      <Hash>EqB0f42rJlm9T21jvgO1qg==</Hash>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <AnonymousApex Include="AnonymousApex\AnonymousApex1.anonymous">
+      <SubType>AnonymousApex</SubType>
+      <PhysicalRelativePath>AnonymousApex\AnonymousApex1.anonymous</PhysicalRelativePath>
+    </AnonymousApex>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Build.targets" />
+</Project>
