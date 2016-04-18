@@ -49,3 +49,5 @@ Temporary Items
 # Welkin studio internal files
 .sflog
 .twssd
+*.sflog
+MetadataAudit/TWS_Sync_Data.twssd
