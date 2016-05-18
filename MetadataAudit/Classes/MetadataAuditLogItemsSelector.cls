@@ -51,22 +51,5 @@ public class MetadataAuditLogItemsSelector extends fflib_SObjectSelector
 					getSObjectName() } ) );
 	}
 
-	/*
-	 * For more examples see https://github.com/financialforcedev/fflib-apex-common-samplecode
-	 * 
-	public List<Metadata_Audit_Log_Item__c> selectBySomethingElse(List<String> somethings)
-	{
-		assertIsAccessible();
-		return (List<Metadata_Audit_Log_Item__c>) Database.query(
-				String.format(
-				'select {0}, ' +
-				  'from {1} ' +
-				  'where Something__c in :somethings ' + 
-				  'order by {2}',
-				new List<String> {
-					getFieldListString(),
-					getSObjectName(),
-					getOrderBy() } ) );
-	}
-	 */
+	
 }

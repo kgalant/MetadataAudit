@@ -27,26 +27,33 @@
     <Folder Include="Soql" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\MetadataAuditJobLogSelector.cls">
+      <SubType>Class</SubType>
+      <PhysicalRelativePath>Classes\MetadataAuditJobLogSelector.cls</PhysicalRelativePath>
+      <Id>01pb0000004sXhTAAU</Id>
+      <Hash>R6RqRF+s4ng6kpooOXvwSw==</Hash>
+      <LastModifiedDateUtcTicks>131065862640000000</LastModifiedDateUtcTicks>
+    </Compile>
     <Compile Include="Classes\MetadataAuditLogItemsSelector.cls">
       <PhysicalRelativePath>Classes\MetadataAuditLogItemsSelector.cls</PhysicalRelativePath>
       <SubType>Class</SubType>
       <Id>01pb0000004wQQWAA2</Id>
-      <LastModifiedDateUtcTicks>131033363760000000</LastModifiedDateUtcTicks>
-      <Hash>+u2G2E/Nfvv1yVi7hLZ1Kg==</Hash>
+      <LastModifiedDateUtcTicks>131065861520000000</LastModifiedDateUtcTicks>
+      <Hash>EerTuDTG4bNswBDNN/SKKw==</Hash>
     </Compile>
     <Compile Include="Classes\MetadataAuditLogQueueable.cls">
       <PhysicalRelativePath>Classes\MetadataAuditLogQueueable.cls</PhysicalRelativePath>
       <SubType>Class</SubType>
       <Id>01pb0000004wQQbAAM</Id>
-      <LastModifiedDateUtcTicks>131054323370000000</LastModifiedDateUtcTicks>
-      <Hash>fupPfGb7RTH2AjFc6Smq1Q==</Hash>
+      <LastModifiedDateUtcTicks>131065892920000000</LastModifiedDateUtcTicks>
+      <Hash>Tfv3B8p3AAL8oqVhX102Eg==</Hash>
     </Compile>
     <Compile Include="Classes\MetadataAuditLogService.cls">
       <PhysicalRelativePath>Classes\MetadataAuditLogService.cls</PhysicalRelativePath>
       <SubType>Class</SubType>
       <Id>01pb0000004wQJpAAM</Id>
-      <LastModifiedDateUtcTicks>131038265990000000</LastModifiedDateUtcTicks>
-      <Hash>/ABx2cvWHLmXYO9qn6Ljhg==</Hash>
+      <LastModifiedDateUtcTicks>131065913900000000</LastModifiedDateUtcTicks>
+      <Hash>iTPGrmFW1IeA5vK47RNlnQ==</Hash>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -54,15 +61,22 @@
       <PhysicalRelativePath>Objects\MetadataAuditSettings__c.object</PhysicalRelativePath>
       <SubType>Object</SubType>
       <Id>01Ib0000001LzerEAC</Id>
-      <LastModifiedDateUtcTicks>131038217849232000</LastModifiedDateUtcTicks>
-      <Hash>vNSMoXtJ6pOcQmBnI9NE1g==</Hash>
+      <LastModifiedDateUtcTicks>131065840780000000</LastModifiedDateUtcTicks>
+      <Hash>0HIgpAbSAltkPRGvlq3adA==</Hash>
     </Object>
     <Object Include="Objects\Metadata_Audit_Configuration__mdt.object">
       <PhysicalRelativePath>Objects\Metadata_Audit_Configuration__mdt.object</PhysicalRelativePath>
       <SubType>Object</SubType>
       <Id>01Ib0000001LzewEAC</Id>
-      <LastModifiedDateUtcTicks>131038217849232000</LastModifiedDateUtcTicks>
-      <Hash>9XSLqCh37IFu2O37o5d2Qw==</Hash>
+      <LastModifiedDateUtcTicks>131080123850000000</LastModifiedDateUtcTicks>
+      <Hash>l+zb4RQhG/lJf6lHmKJiWg==</Hash>
+    </Object>
+    <Object Include="Objects\Metadata_Audit_Job_Log__c.object">
+      <SubType>Object</SubType>
+      <PhysicalRelativePath>Objects\Metadata_Audit_Job_Log__c.object</PhysicalRelativePath>
+      <Id>01Ib0000001HqxOEAS</Id>
+      <Hash>olWKV79+ZGonH0PxlJZnaA==</Hash>
+      <LastModifiedDateUtcTicks>131080134444295933</LastModifiedDateUtcTicks>
     </Object>
     <Object Include="Objects\Metadata_Audit_Log_Item__c.object">
       <PhysicalRelativePath>Objects\Metadata_Audit_Log_Item__c.object</PhysicalRelativePath>
@@ -75,31 +89,38 @@
       <PhysicalRelativePath>Objects\Metadata_Audit_Run_Log__c.object</PhysicalRelativePath>
       <SubType>Object</SubType>
       <Id>01Ib0000001LzemEAC</Id>
-      <LastModifiedDateUtcTicks>131038217849232000</LastModifiedDateUtcTicks>
-      <Hash>egNaL7FppnzP/ORmmlXPkQ==</Hash>
+      <LastModifiedDateUtcTicks>131065810680000000</LastModifiedDateUtcTicks>
+      <Hash>v5aoKuJeiRhQi6PiqDwXww==</Hash>
     </Object>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Classes\MetadataAuditJobLogSelector.cls-meta.xml">
+      <SubType>Metadata</SubType>
+      <PhysicalRelativePath>Classes\MetadataAuditJobLogSelector.cls-meta.xml</PhysicalRelativePath>
+      <Hash>1L13F+k9MzlVYVkP4Ft7pw==</Hash>
+      <LastModifiedDateUtcTicks>131065862640000000</LastModifiedDateUtcTicks>
+      <DependentUpon>Classes\MetadataAuditJobLogSelector.cls</DependentUpon>
+    </None>
     <None Include="Classes\MetadataAuditLogItemsSelector.cls-meta.xml">
       <PhysicalRelativePath>Classes\MetadataAuditLogItemsSelector.cls-meta.xml</PhysicalRelativePath>
       <SubType>Metadata</SubType>
       <DependentUpon>Classes\MetadataAuditLogItemsSelector.cls</DependentUpon>
-      <LastModifiedDateUtcTicks>131033363760000000</LastModifiedDateUtcTicks>
+      <LastModifiedDateUtcTicks>131065861520000000</LastModifiedDateUtcTicks>
       <Hash>1L13F+k9MzlVYVkP4Ft7pw==</Hash>
     </None>
     <None Include="Classes\MetadataAuditLogQueueable.cls-meta.xml">
       <PhysicalRelativePath>Classes\MetadataAuditLogQueueable.cls-meta.xml</PhysicalRelativePath>
       <SubType>Metadata</SubType>
       <DependentUpon>Classes\MetadataAuditLogQueueable.cls</DependentUpon>
-      <LastModifiedDateUtcTicks>131054322790000000</LastModifiedDateUtcTicks>
-      <Hash>0P+mmRTqd2SFGr3SONcOWQ==</Hash>
+      <LastModifiedDateUtcTicks>131065892920000000</LastModifiedDateUtcTicks>
+      <Hash>1L13F+k9MzlVYVkP4Ft7pw==</Hash>
     </None>
     <None Include="Classes\MetadataAuditLogService.cls-meta.xml">
       <PhysicalRelativePath>Classes\MetadataAuditLogService.cls-meta.xml</PhysicalRelativePath>
       <SubType>Metadata</SubType>
       <DependentUpon>Classes\MetadataAuditLogService.cls</DependentUpon>
-      <LastModifiedDateUtcTicks>131038249710000000</LastModifiedDateUtcTicks>
-      <Hash>EqB0f42rJlm9T21jvgO1qg==</Hash>
+      <LastModifiedDateUtcTicks>131065913900000000</LastModifiedDateUtcTicks>
+      <Hash>uwZXo0MLIqlu2+U6OesXVA==</Hash>
     </None>
   </ItemGroup>
   <ItemGroup>

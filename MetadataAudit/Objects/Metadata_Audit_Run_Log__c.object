@@ -88,6 +88,18 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Metadata_Audit_Job_Log__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Metadata Audit Job Log</label>
+        <referenceTo>Metadata_Audit_Job_Log__c</referenceTo>
+        <relationshipLabel>Metadata Audit Run Logs</relationshipLabel>
+        <relationshipName>Metadata_Audit_Run_Logs</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Metadata_category__c</fullName>
         <externalId>false</externalId>
         <label>Metadata category</label>
@@ -126,6 +138,7 @@
     </nameField>
     <pluralLabel>Metadata Audit Run Logs</pluralLabel>
     <searchLayouts>
+        <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
         <customTabListAdditionalFields>Metadata_category__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Items_added__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Items_deleted__c</customTabListAdditionalFields>
