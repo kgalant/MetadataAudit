@@ -409,6 +409,26 @@
         <default>false</default>
     </globalPicklistValues>
     <globalPicklistValues>
+        <fullName>analyticSnapshots</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+    </globalPicklistValues>
+    <globalPicklistValues>
+        <fullName>workflows</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+    </globalPicklistValues>
+    <globalPicklistValues>
+        <fullName>appMenus</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+    </globalPicklistValues>
+    <globalPicklistValues>
+        <fullName>approvalProcesses</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+    </globalPicklistValues>
+    <globalPicklistValues>
         <fullName>authproviders</fullName>
         <default>false</default>
         <isActive>false</isActive>
@@ -524,12 +544,12 @@
         <isActive>false</isActive>
     </globalPicklistValues>
     <globalPicklistValues>
-        <fullName>objectTranslations</fullName>
+        <fullName>objects</fullName>
         <default>false</default>
         <isActive>false</isActive>
     </globalPicklistValues>
     <globalPicklistValues>
-        <fullName>objects</fullName>
+        <fullName>objectTranslations</fullName>
         <default>false</default>
         <isActive>false</isActive>
     </globalPicklistValues>
@@ -574,12 +594,12 @@
         <isActive>false</isActive>
     </globalPicklistValues>
     <globalPicklistValues>
-        <fullName>reportTypes</fullName>
+        <fullName>reports</fullName>
         <default>false</default>
         <isActive>false</isActive>
     </globalPicklistValues>
     <globalPicklistValues>
-        <fullName>reports</fullName>
+        <fullName>reportTypes</fullName>
         <default>false</default>
         <isActive>false</isActive>
     </globalPicklistValues>
@@ -639,30 +659,10 @@
         <isActive>false</isActive>
     </globalPicklistValues>
     <globalPicklistValues>
-        <fullName>workflows</fullName>
-        <default>false</default>
-        <isActive>false</isActive>
-    </globalPicklistValues>
-    <globalPicklistValues>
-        <fullName>approvalProcesses</fullName>
-        <default>false</default>
-        <isActive>false</isActive>
-    </globalPicklistValues>
-    <globalPicklistValues>
         <fullName>applications</fullName>
         <default>false</default>
         <isActive>false</isActive>
     </globalPicklistValues>
-    <globalPicklistValues>
-        <fullName>analyticSnapshots</fullName>
-        <default>false</default>
-        <isActive>false</isActive>
-    </globalPicklistValues>
-    <globalPicklistValues>
-        <fullName>appMenus</fullName>
-        <default>false</default>
-        <isActive>false</isActive>
-    </globalPicklistValues>
     <masterLabel>Metadata types</masterLabel>
-    <sorted>true</sorted>
+    <sorted>false</sorted>
 </GlobalPicklist>
