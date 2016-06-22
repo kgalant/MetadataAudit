@@ -132,6 +132,10 @@
         <name>CustomTab</name>
     </types>
     <types>
+        <members>*</members>
+        <name>GlobalPicklist</name>
+    </types>
+    <types>
         <members>Metadata_Audit_Configuration__mdt-Metadata Audit Configuration Layout</members>
         <members>Metadata_Audit_Job_Log__c-Metadata Audit Job Log Layout</members>
         <members>Metadata_Audit_Log_Item__c-Metadata Audit Log Item Layout</members>
