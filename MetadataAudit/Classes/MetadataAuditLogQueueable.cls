@@ -17,7 +17,7 @@ public class MetadataAuditLogQueueable implements Queueable, Database.AllowsCall
 
 	public void execute(QueueableContext context) {
 		Metadata_Audit_Configuration__mdt[] myMDTs = 
-		[select QualifiedApiName from Metadata_Audit_Configuration__mdt ORDER BY QualifiedApiName];
+		[select QualifiedApiName from Metadata_Audit_Configuration__mdt WHERE Enabled__c=TRUE ORDER BY QualifiedApiName];
 
 		MetadataAuditSettings__c settings = MetadataAuditSettings__c.getValues('Automated');
 		String lastRunMdType = settings.LastRunMetadataType__c;
