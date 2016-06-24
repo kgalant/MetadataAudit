@@ -20,66 +20,70 @@ public class MetadataAuditLogQueueable implements Queueable, Database.AllowsCall
 		[select QualifiedApiName from Metadata_Audit_Configuration__mdt WHERE Enabled__c=TRUE ORDER BY QualifiedApiName];
 
 		MetadataAuditSettings__c settings = MetadataAuditSettings__c.getValues('Automated');
-		String lastRunMdType = settings.LastRunMetadataType__c;
-		Id currentRunId = settings.JobRunId__c;
-		if (currentRunId == null) {
-			currentJobId = createNewRun();
 
-			// we'll create a new job id, then chain a new execution to run the main stuff, as we couldn't create the 
-			// Jog Run log, then do a callout
+		if (settings != null) {
+			String lastRunMdType = settings.LastRunMetadataType__c;
+			Id currentRunId = settings.JobRunId__c;
+			if (currentRunId == null) {
+				currentJobId = createNewRun();
 
-			settings.JobRunId__c = currentJobId;
-			upsert settings;
-			FutureChaining();
-		} else {
-			currentJobId = currentRunId;
-		
+				// we'll create a new job id, then chain a new execution to run the main stuff, as we couldn't create the 
+				// Jog Run log, then do a callout
 
-			// if lastrun is blank, start from the top of the Custom MDTs
-			// if not blank, find the one that last ran, and run the one after
-
-			boolean didSomething = false;
-			boolean runNext = lastRunMdType == null || lastRunMdType.length() == 0 ? true : false;
-			Integer runCount = 0;
-			System.debug(LoggingLevel.ERROR, 'Last run: ' + settings.LastRunMetadataType__c);
-			for (Metadata_Audit_Configuration__mdt mymdt : myMDTs) {
-				System.debug(LoggingLevel.DEBUG, 'Looking at MDT: ' + myMDT);
-				if (mymdt.QualifiedApiName == lastRunMdType) {
-					runNext = true;
-				} else if (runNext == true) {
-					System.debug(LoggingLevel.ERROR, 'Will run metadata audit for ' + mymdt.QualifiedApiName);
-					settings.LastRunMetadataType__c = mymdt.QualifiedApiName;
-					
-					MetadataAuditLogService.fetchAndProcessType(mymdt.QualifiedApiName, currentJobId);
-					runCount++;
-					runNext = false;
-					didSomething = true;
-					upsert settings;
-					System.debug(LoggingLevel.ERROR, 'Completed metadata audit for ' + mymdt.QualifiedApiName);
-					break;
-				}
-				
-			}
-
-			// if we reach here with runNext set, it means that the last job ran the last configged item
-			// so just reset the lastRun, joblog fields
-
-			if (runNext == true) {
-				settings.LastRunMetadataType__c = null;
-				settings.JobRunId__c = null;
+				settings.JobRunId__c = currentJobId;
 				upsert settings;
-				System.debug(LoggingLevel.DEBUG, 'Completed execution of all config items. Resetting counter (LastRunMetadataType__c).');
-			}
-
-			// if we did do something in this batch, fire off one more
-
-			if (didSomething && runCount < 5) {
 				FutureChaining();
-			}
-			System.debug(LoggingLevel.DEBUG, 'Completed MetadataAuditLogQueueable execution.');
-		}
-		
+			} else {
+				currentJobId = currentRunId;
+			
 
+				// if lastrun is blank, start from the top of the Custom MDTs
+				// if not blank, find the one that last ran, and run the one after
+
+				boolean didSomething = false;
+				boolean runNext = lastRunMdType == null || lastRunMdType.length() == 0 ? true : false;
+				Integer runCount = 0;
+				System.debug(LoggingLevel.ERROR, 'Last run: ' + settings.LastRunMetadataType__c);
+				for (Metadata_Audit_Configuration__mdt mymdt : myMDTs) {
+					System.debug(LoggingLevel.DEBUG, 'Looking at MDT: ' + myMDT);
+					if (mymdt.QualifiedApiName == lastRunMdType) {
+						runNext = true;
+					} else if (runNext == true) {
+						System.debug(LoggingLevel.ERROR, 'Will run metadata audit for ' + mymdt.QualifiedApiName);
+						settings.LastRunMetadataType__c = mymdt.QualifiedApiName;
+						
+						MetadataAuditLogService.fetchAndProcessType(mymdt.QualifiedApiName, currentJobId);
+						runCount++;
+						runNext = false;
+						didSomething = true;
+						upsert settings;
+						System.debug(LoggingLevel.ERROR, 'Completed metadata audit for ' + mymdt.QualifiedApiName);
+						break;
+					}
+					
+				}
+
+				// if we reach here with runNext set, it means that the last job ran the last configged item
+				// so just reset the lastRun, joblog fields
+
+				if (runNext == true) {
+					settings.LastRunMetadataType__c = null;
+					settings.JobRunId__c = null;
+					upsert settings;
+					System.debug(LoggingLevel.DEBUG, 'Completed execution of all config items. Resetting counter (LastRunMetadataType__c).');
+				}
+
+				// if we did do something in this batch, fire off one more
+
+				if (didSomething && runCount < 5) {
+					FutureChaining();
+				}
+				System.debug(LoggingLevel.DEBUG, 'Completed MetadataAuditLogQueueable execution.');
+			}
+
+		} else {
+			System.debug(LoggingLevel.DEBUG, 'Run setup custom settings not found, cannot continue...');
+		}
 	}
 
 	@future(callout=true)
