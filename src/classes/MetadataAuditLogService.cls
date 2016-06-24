@@ -76,6 +76,7 @@ public with sharing class MetadataAuditLogService {
 
 	public static MetadataService.FileProperties[] fetchMetadataTypesFromOrg(String[] metadataTypeNames, Id currentJobId) {
 		System.debug(LoggingLevel.DEBUG, 'Job Log Id: ' + currentJobId);
+		System.debug(LoggingLevel.DEBUG, 'MD Types: ' + metadataTypeNames);
 		
 		MetadataService.MetadataPort service = new MetadataService.MetadataPort();
 
@@ -117,14 +118,25 @@ public with sharing class MetadataAuditLogService {
 
 		// TODO: test if we have a valid session - if not, no point in trying to connect just to get errors
 
+		System.debug(LoggingLevel.DEBUG, 'Session id: ' + service.SessionHeader.sessionId);
+
 		List<MetadataService.ListMetadataQuery> queries = new List<MetadataService.ListMetadataQuery> ();
 		for (String metadataTypeName : metadataTypeNames) {
 			MetadataService.ListMetadataQuery query = new MetadataService.ListMetadataQuery();
 			query.type_x = metadataTypeName;
 			queries.add(query);
 		}
-		MetadataService.FileProperties[] retval = service.listMetadata(queries, APIVERSION);
-		return retval;
+		try {
+			MetadataService.FileProperties[] retval = service.listMetadata(queries, APIVERSION);
+			return retval;
+		} catch (Exception e) {
+			System.debug(LoggingLevel.DEBUG, 'Callout caused exception: ');
+			System.debug(LoggingLevel.DEBUG, e.getCause());
+			System.debug(LoggingLevel.DEBUG, e.getMessage());
+			System.debug(LoggingLevel.DEBUG, e.getLineNumber());
+		}
+		return null;
+		
 	}
 
 	public static MetadataService.FileProperties[] fetchMetadataTypeFromOrg(String metadataTypeName, Id currentJobId) {
