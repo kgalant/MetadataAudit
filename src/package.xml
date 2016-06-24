@@ -11,6 +11,14 @@
         <name>ApexClass</name>
     </types>
     <types>
+        <members>MyAuthprovider</members>
+        <name>AuthProvider</name>
+    </types>
+    <types>
+        <members>Self_app</members>
+        <name>ConnectedApp</name>
+    </types>
+    <types>
         <members>Metadata_Audit</members>
         <name>CustomApplication</name>
     </types>
@@ -145,8 +153,13 @@
         <name>Layout</name>
     </types>
     <types>
-        <members>Admin</members>
-        <name>Profile</name>
+        <members>Metadata_Audit_User</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>Metadata_Audit_Reports</members>
+        <members>Metadata_Audit_Reports/Metadata_modification_in_last_7_days</members>
+        <name>Report</name>
     </types>
     <types>
         <members>Metadata_Audit_Runs</members>
