@@ -96,6 +96,16 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Link_to_item__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&apos;/&apos; &amp;  Metadata_Item_ID__c , &apos;Jump to item&apos;, &apos;newWindow&apos;)</formula>
+        <label>Link to item</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Metadata_Audit_Run_Log__c</fullName>
         <deleteConstraint>Restrict</deleteConstraint>
         <externalId>false</externalId>
