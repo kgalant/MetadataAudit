@@ -64,11 +64,95 @@
         <type>LongTextArea</type>
         <visibleLines>50</visibleLines>
     </fields>
+    <fields>
+        <fullName>Items_created__c</fullName>
+        <externalId>false</externalId>
+        <label>Items created</label>
+        <summarizedField>Metadata_Audit_Run_Log__c.Items_added__c</summarizedField>
+        <summaryForeignKey>Metadata_Audit_Run_Log__c.Metadata_Audit_Job_Log__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Items_deleted__c</fullName>
+        <externalId>false</externalId>
+        <label>Items deleted</label>
+        <summarizedField>Metadata_Audit_Run_Log__c.Items_deleted__c</summarizedField>
+        <summaryForeignKey>Metadata_Audit_Run_Log__c.Metadata_Audit_Job_Log__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Items_modified__c</fullName>
+        <externalId>false</externalId>
+        <label>Items modified</label>
+        <summarizedField>Metadata_Audit_Run_Log__c.Items_modified__c</summarizedField>
+        <summaryForeignKey>Metadata_Audit_Run_Log__c.Metadata_Audit_Job_Log__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Metadata_types_interrogated__c</fullName>
+        <externalId>false</externalId>
+        <label>Metadata types interrogated</label>
+        <summaryForeignKey>Metadata_Audit_Run_Log__c.Metadata_Audit_Job_Log__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_items__c</fullName>
+        <externalId>false</externalId>
+        <label>Total items</label>
+        <summarizedField>Metadata_Audit_Run_Log__c.Number_of_query_items_returned__c</summarizedField>
+        <summaryForeignKey>Metadata_Audit_Run_Log__c.Metadata_Audit_Job_Log__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
     <label>Metadata Audit Job Log</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Items_created__c</columns>
+        <columns>Items_deleted__c</columns>
+        <columns>Items_modified__c</columns>
+        <columns>Total_items__c</columns>
+        <columns>Metadata_types_interrogated__c</columns>
+        <columns>UPDATEDBY_USER</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All_with_changes</fullName>
+        <booleanFilter>1 OR 2 OR 3</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Items_created__c</columns>
+        <columns>Items_deleted__c</columns>
+        <columns>Items_modified__c</columns>
+        <columns>Total_items__c</columns>
+        <columns>Metadata_types_interrogated__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Items_created__c</field>
+            <operation>notEqual</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>Items_deleted__c</field>
+            <operation>notEqual</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>Items_modified__c</field>
+            <operation>notEqual</operation>
+            <value>0</value>
+        </filters>
+        <label>All with changes</label>
     </listViews>
     <nameField>
         <displayFormat>JL-{0000000}</displayFormat>
@@ -79,6 +163,10 @@
     <searchLayouts>
         <customTabListAdditionalFields>Execution_Log__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>UPDATEDBY_USER</customTabListAdditionalFields>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <excludedStandardButtons>Forward</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
         <searchResultsAdditionalFields>Execution_Log__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>
     </searchLayouts>

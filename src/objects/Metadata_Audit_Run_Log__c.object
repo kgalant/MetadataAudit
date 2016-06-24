@@ -90,15 +90,16 @@
     </fields>
     <fields>
         <fullName>Metadata_Audit_Job_Log__c</fullName>
-        <deleteConstraint>Restrict</deleteConstraint>
         <externalId>false</externalId>
         <label>Metadata Audit Job Log</label>
         <referenceTo>Metadata_Audit_Job_Log__c</referenceTo>
         <relationshipLabel>Metadata Audit Run Logs</relationshipLabel>
         <relationshipName>Metadata_Audit_Run_Logs</relationshipName>
-        <required>true</required>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
         <fullName>Metadata_category__c</fullName>
@@ -147,5 +148,5 @@
         <customTabListAdditionalFields>Items_modified__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Number_of_query_items_returned__c</customTabListAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>
