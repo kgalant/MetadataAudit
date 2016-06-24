@@ -129,7 +129,7 @@
         <fullName>Metadata_Item_ID__c</fullName>
         <externalId>false</externalId>
         <label>Metadata Item ID</label>
-        <length>40</length>
+        <length>255</length>
         <required>true</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
