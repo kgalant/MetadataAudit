@@ -16,21 +16,6 @@
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CreatedBy</field>
-            <table>Metadata_Audit_Job_Log__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CreatedDate</field>
-            <table>Metadata_Audit_Job_Log__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CurrencyIsoCode</field>
-            <table>Metadata_Audit_Job_Log__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Execution_Log__c</field>
             <table>Metadata_Audit_Job_Log__c</table>
         </columns>
@@ -56,16 +41,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedBy</field>
-            <table>Metadata_Audit_Job_Log__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedDate</field>
-            <table>Metadata_Audit_Job_Log__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Id</field>
             <table>Metadata_Audit_Job_Log__c</table>
         </columns>
@@ -76,32 +51,17 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Owner</field>
+            <field>Total_items__c</field>
             <table>Metadata_Audit_Job_Log__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Total_items__c</field>
+            <field>LastModifiedDate</field>
             <table>Metadata_Audit_Job_Log__c</table>
         </columns>
         <masterLabel>Job Logs</masterLabel>
     </sections>
     <sections>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CreatedBy</field>
-            <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CreatedDate</field>
-            <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CurrencyIsoCode</field>
-            <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r</table>
-        </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Items_added__c</field>
@@ -124,21 +84,18 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedDate</field>
-            <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Id</field>
             <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r</table>
         </columns>
         <columns>
             <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Run Log Name</displayNameOverride>
             <field>Name</field>
             <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Metadata type</displayNameOverride>
             <field>Metadata_category__c</field>
             <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r</table>
         </columns>
@@ -152,17 +109,8 @@
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CreatedBy</field>
-            <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r.Metadata_Audit_Log_Items__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Record Date</displayNameOverride>
             <field>CreatedDate</field>
-            <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r.Metadata_Audit_Log_Items__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CurrencyIsoCode</field>
             <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r.Metadata_Audit_Log_Items__r</table>
         </columns>
         <columns>
@@ -177,32 +125,34 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Filename__c</field>
-            <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r.Metadata_Audit_Log_Items__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>LastModifiedBy</field>
             <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r.Metadata_Audit_Log_Items__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedDate</field>
+            <field>Filename__c</field>
             <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r.Metadata_Audit_Log_Items__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Item ID</displayNameOverride>
             <field>Id</field>
             <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r.Metadata_Audit_Log_Items__r</table>
         </columns>
         <columns>
             <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Item Name</displayNameOverride>
             <field>Name</field>
             <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r.Metadata_Audit_Log_Items__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Metadata_Created_By__c</field>
+            <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r.Metadata_Audit_Log_Items__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Owner</field>
             <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r.Metadata_Audit_Log_Items__r</table>
         </columns>
         <columns>
@@ -217,21 +167,19 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified By</displayNameOverride>
             <field>Metadata_LM_By__c</field>
             <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r.Metadata_Audit_Log_Items__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified Date</displayNameOverride>
             <field>Metadata_LM_Date__c</field>
             <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r.Metadata_Audit_Log_Items__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Owner</field>
-            <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r.Metadata_Audit_Log_Items__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Metadata Type</displayNameOverride>
             <field>Type__c</field>
             <table>Metadata_Audit_Job_Log__c.Metadata_Audit_Run_Logs__r.Metadata_Audit_Log_Items__r</table>
         </columns>
