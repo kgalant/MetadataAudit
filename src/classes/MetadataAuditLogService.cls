@@ -35,7 +35,8 @@ public with sharing class MetadataAuditLogService {
 		MetadataService.FileProperties[] fp = fetchMetadataTypeFromOrg(metadataType, currentJobId);
 		processMetadata(fp, metadataType, currentJobId);
 		Long finishTime = System.currentTimeMillis();
-		logLine('Metadata: ' + metadataType + ', time taken (ms): ' + (finishTime - startTime)+ '\n \n');
+		logLine('Metadata: ' + metadataType + ', time taken (ms): ' + (finishTime - startTime)+ ', items returned: ' + 
+			((fp != null) ? String.valueOf(fp.size()) : 'none.') + '\n \n');
 
 		// now fetch and update the job log object
 
@@ -148,20 +149,22 @@ public with sharing class MetadataAuditLogService {
 
 		System.debug(LoggingLevel.DEBUG, 'Job Log Id: ' + currentJobId);
 
+		fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(SERVICE_SOBJECTS);
+
 		// check whether we got anything back in the fpList - if not, log and move on
 
-		if (fpList != null && fpList.size() > 0) {
+		Metadata_Audit_Run_Log__c runLog = new Metadata_Audit_Run_Log__c();
+		runLog.Metadata_category__c = mdType;
+		runLog.Items_added__c = 0;
+		runLog.Items_deleted__c = 0;
+		runLog.Items_modified__c = 0;
+		runLog.Metadata_Audit_Job_Log__c = currentJobId;
+		
+		runLog.Number_of_query_items_returned__c = (fpList != null) ? fpList.size() : -1;
 
-			fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(SERVICE_SOBJECTS);
+		uow.registerNew(runLog);
 
-			Metadata_Audit_Run_Log__c runLog = new Metadata_Audit_Run_Log__c();
-			runLog.Metadata_category__c = mdType;
-			runLog.Number_of_query_items_returned__c = fpList.size();
-			runLog.Items_added__c = 0;
-			runLog.Items_deleted__c = 0;
-			runLog.Items_modified__c = 0;
-			runLog.Metadata_Audit_Job_Log__c = currentJobId;
-			uow.registerNew(runLog);
+		if (fpList != null && fpList.size() > 0) {	
 
 			if (fpList.size() != 0) {
 				// get a map by Metadata_Item_ID__c field rather than list
@@ -257,11 +260,11 @@ public with sharing class MetadataAuditLogService {
 					}
 				}
 			}
-			uow.commitWork();
+			
 		} else {
 			System.debug(LoggingLevel.DEBUG, 'Null or zero-length list of FileProperties received for metadata: ' + mdType + ', skipping...');
 		}
-
+		uow.commitWork();
 	}
 
 	private static List<String> METADATA_NAMES =
