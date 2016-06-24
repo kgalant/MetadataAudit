@@ -5,4 +5,5 @@
     <tab>Metadata_Audit_Run_Log__c</tab>
     <tab>Metadata_Audit_Log_Item__c</tab>
     <tab>Metadata_Audit_Job_Log__c</tab>
+    <tab>standard-report</tab>
 </CustomApplication>
