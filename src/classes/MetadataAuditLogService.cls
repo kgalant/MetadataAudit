@@ -10,7 +10,7 @@
 
 public with sharing class MetadataAuditLogService {
 
-	private static Integer APIVERSION = 36;
+	private static Integer APIVERSION = 37;
 
 	private static String ENTRYTYPE_CREATE = 'Initial create';
 	private static String ENTRYTYPE_MOD = 'Modification';
@@ -22,6 +22,8 @@ public with sharing class MetadataAuditLogService {
 
 	private static String logString = '';
 
+	private static String fetchErrorMessage = null;
+
 	public MetadataAuditLogService() {
 
 	}
@@ -32,11 +34,13 @@ public with sharing class MetadataAuditLogService {
 
 	public static void fetchAndProcessType(String metadataType, Id currentJobId) {
 		Long startTime = System.currentTimeMillis();
+		fetchErrorMessage = null;
 		MetadataService.FileProperties[] fp = fetchMetadataTypeFromOrg(metadataType, currentJobId);
 		processMetadata(fp, metadataType, currentJobId);
 		Long finishTime = System.currentTimeMillis();
-		logLine('Metadata: ' + metadataType + ', time taken (ms): ' + (finishTime - startTime)+ ', items returned: ' + 
-			((fp != null) ? String.valueOf(fp.size()) : 'none.') + '\n \n');
+		String itemsReturnedText = generateItemsReturnedText(fp);
+
+		logLine('Metadata: ' + metadataType + ', time taken (ms): ' + (finishTime - startTime)+ ', ' + itemsReturnedText);
 
 		// now fetch and update the job log object
 
@@ -135,6 +139,7 @@ public with sharing class MetadataAuditLogService {
 			System.debug(LoggingLevel.DEBUG, e.getCause());
 			System.debug(LoggingLevel.DEBUG, e.getMessage());
 			System.debug(LoggingLevel.DEBUG, e.getLineNumber());
+			fetchErrorMessage = e.getMessage();
 		}
 		return null;
 		
@@ -390,5 +395,18 @@ public with sharing class MetadataAuditLogService {
 
 	private static void logLine (String line) {
 		logString += line + '\n';
+	}
+
+	private static String generateItemsReturnedText(MetadataService.FileProperties[] fp) {
+		String itemsReturnedText = '';
+		if (fetchErrorMessage != null) {
+			// we had a fetch error
+			itemsReturnedText = 'nothing fetched - error: ' + fetchErrorMessage;
+		} else {
+			itemsReturnedText = 'items returned: ' + String.valueOf(fp.size());
+		}
+		itemsReturnedText += '\n \n';
+		return itemsReturnedText;
+		
 	}
 }
