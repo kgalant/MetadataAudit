@@ -104,6 +104,20 @@
         <type>Summary</type>
     </fields>
     <fields>
+        <fullName>Number_of_fetch_errors__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of fetch errors</label>
+        <summaryFilterItems>
+            <field>Metadata_Audit_Run_Log__c.Error_returned__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Metadata_Audit_Run_Log__c.Metadata_Audit_Job_Log__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>Total_items__c</fullName>
         <externalId>false</externalId>
         <label>Total items</label>

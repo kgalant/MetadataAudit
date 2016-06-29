@@ -17,6 +17,20 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Metadata_category__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Number_of_query_items_returned__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Metadata_Audit_Job_Log__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Items_added__c</field>
             </layoutItems>
             <layoutItems>
@@ -29,18 +43,9 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Metadata_category__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Number_of_query_items_returned__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Metadata_Audit_Job_Log__c</field>
+                <field>Error_returned__c</field>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>

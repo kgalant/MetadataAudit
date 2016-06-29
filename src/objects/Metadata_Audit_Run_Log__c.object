@@ -56,6 +56,14 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
+        <fullName>Error_returned__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Error returned</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Items_added__c</fullName>
         <externalId>false</externalId>
         <label>Items added</label>
@@ -147,6 +155,7 @@
         <customTabListAdditionalFields>Items_deleted__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Items_modified__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Number_of_query_items_returned__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Error_returned__c</customTabListAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

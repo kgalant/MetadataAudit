@@ -40,6 +40,10 @@
                 <behavior>Readonly</behavior>
                 <field>Metadata_types_interrogated__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Number_of_fetch_errors__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -86,6 +90,7 @@
         <fields>Items_deleted__c</fields>
         <fields>Items_modified__c</fields>
         <fields>Number_of_query_items_returned__c</fields>
+        <fields>Error_returned__c</fields>
         <relatedList>Metadata_Audit_Run_Log__c.Metadata_Audit_Job_Log__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

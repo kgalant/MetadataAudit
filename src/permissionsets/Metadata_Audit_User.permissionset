@@ -59,6 +59,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Metadata_Audit_Job_Log__c.Number_of_fetch_errors__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Metadata_Audit_Job_Log__c.Total_items__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -95,6 +100,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Metadata_Audit_Log_Item__c.Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Metadata_Audit_Run_Log__c.Error_returned__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
