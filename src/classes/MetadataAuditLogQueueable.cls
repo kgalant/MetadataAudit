@@ -67,15 +67,12 @@ public class MetadataAuditLogQueueable implements Queueable, Database.AllowsCall
 				// so just reset the lastRun, joblog fields
 
 				if (runNext == true) {
-					settings.LastRunMetadataType__c = null;
-					settings.JobRunId__c = null;
-					upsert settings;
-					System.debug(LoggingLevel.DEBUG, 'Completed execution of all config items. Resetting counter (LastRunMetadataType__c).');
+					doHousekeeping(settings);
 				}
 
 				// if we did do something in this batch, fire off one more
 
-				if (didSomething && runCount < 5) {
+				if (didSomething) { // && runCount < 5 - runCount less than 5 for dev orgs only
 					FutureChaining();
 				}
 				System.debug(LoggingLevel.DEBUG, 'Completed MetadataAuditLogQueueable execution.');
@@ -105,4 +102,41 @@ public class MetadataAuditLogQueueable implements Queueable, Database.AllowsCall
 		System.debug(LoggingLevel.DEBUG, 'Job Log Id: ' + currentJobId);
 		return myJobLog.Id;
     }
+
+    // this methods does all the needed housekeeping after the main job is done
+    // so resets counters, etc., but also cleans up the old data
+
+    private static void doHousekeeping(MetadataAuditSettings__c settings) {
+
+    	// reset tracking fields
+
+    	settings.LastRunMetadataType__c = null;
+    	settings.JobRunId__c = null;
+    	upsert settings;
+    	System.debug(LoggingLevel.DEBUG, 'Completed execution of all config items. Resetting counter (LastRunMetadataType__c).');
+
+    	// cleanup data
+
+    	Integer retentionTime = settings.Empty_log_retention_time__c.intValue();
+
+    	if (retentionTime != null && retentionTime > 0) {
+    		doDataCleanup(retentionTime);
+    	}
+
+    	
+    }
+
+    // this method will delete empty log lines older than _retentionTime_ hours
+
+    private static void doDataCleanup(Integer retentionTime) {
+    	// clean up empty log lines
+
+    	String query = 'SELECT Id,Metadata_Audit_Job_Log__c,Metadata_category__c, LastModifiedDate ' + 
+    		' FROM Metadata_Audit_Run_Log__c WHERE Items_added__c = 0 AND Items_deleted__c = 0 AND ' +
+    		' Items_modified__c = 0 AND LastModifiedDate < LAST_N_DAYS:' + retentionTime;
+
+    	List<Metadata_Audit_Run_Log__c> marls = Database.query(query);
+
+    	delete marls;
+   	}
 }

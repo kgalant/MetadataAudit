@@ -25,6 +25,19 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Empty_log_retention_time__c</fullName>
+        <description>The time in days after which empty log lines (i.e. log lines where a given metadata type was not modified in any way) will be deleted</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The time in days after which empty log lines (i.e. log lines where a given metadata type was not modified in any way) will be deleted</inlineHelpText>
+        <label>Empty log retention time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Endpoint__c</fullName>
         <description>URL to the token service, e.g. https://your-my-domain.my.salesforce.com/services/oauth2/token</description>
         <externalId>false</externalId>
