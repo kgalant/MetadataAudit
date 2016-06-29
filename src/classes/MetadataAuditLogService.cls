@@ -165,7 +165,8 @@ public with sharing class MetadataAuditLogService {
 		runLog.Items_modified__c = 0;
 		runLog.Metadata_Audit_Job_Log__c = currentJobId;
 		
-		runLog.Number_of_query_items_returned__c = (fpList != null) ? fpList.size() : -1;
+		runLog.Number_of_query_items_returned__c = (fpList != null) ? fpList.size() : 0;
+		runlog.Error_returned__c = true;
 
 		uow.registerNew(runLog);
 
@@ -403,7 +404,7 @@ public with sharing class MetadataAuditLogService {
 			// we had a fetch error
 			itemsReturnedText = 'nothing fetched - error: ' + fetchErrorMessage;
 		} else {
-			itemsReturnedText = 'items returned: ' + String.valueOf(fp.size());
+			itemsReturnedText = 'items returned: ' + (fp == null ? '0' : String.valueOf(fp.size()));
 		}
 		itemsReturnedText += '\n \n';
 		return itemsReturnedText;
