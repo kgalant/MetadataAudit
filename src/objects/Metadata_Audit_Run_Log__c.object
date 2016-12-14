@@ -137,10 +137,9 @@
         <columns>Items_modified__c</columns>
         <columns>Metadata_category__c</columns>
         <columns>Number_of_query_items_returned__c</columns>
-        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
-        <language>en_US</language>
     </listViews>
     <nameField>
         <displayFormat>MARL-{00000000}</displayFormat>
