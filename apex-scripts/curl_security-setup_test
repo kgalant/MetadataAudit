@@ -1,0 +1,6 @@
+curl https://login.salesforce.com/services/oauth2/token \
+  -d "grant_type=password" \
+  -d "client_id=YOUR_CLIENT_ID" \
+  -d "client_secret=YOUR_CLIENT_SECRET" \
+  -d "username=YOUR_USERNAME" \
+  -d "password=YOUR_PASSWORD"
