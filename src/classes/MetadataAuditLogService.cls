@@ -106,9 +106,11 @@ public with sharing class MetadataAuditLogService {
 		                '&username=' + EncodingUtil.urlEncode(mySettings.Username__c, 'UTF-8') +
 		                '&password=' + EncodingUtil.urlEncode(mySettings.Password__c, 'UTF-8')
 		);
+		System.debug(LoggingLevel.FINE, 'Request body: ' + request.getBody());
 
 		HttpResponse response = new Http().send(request);
-		System.debug(response.getBody());
+		System.debug('Response body: ' + response.getBody() + ' Status: ' + response.getStatus());
+
 
 		try {
 			OAuth2 oauth2 = (OAuth2) JSON.deserialize(
@@ -125,21 +127,26 @@ public with sharing class MetadataAuditLogService {
 
 		System.debug(LoggingLevel.DEBUG, 'Session id: ' + service.SessionHeader.sessionId);
 
-		List<MetadataService.ListMetadataQuery> queries = new List<MetadataService.ListMetadataQuery> ();
-		for (String metadataTypeName : metadataTypeNames) {
-			MetadataService.ListMetadataQuery query = new MetadataService.ListMetadataQuery();
-			query.type_x = metadataTypeName;
-			queries.add(query);
-		}
-		try {
-			MetadataService.FileProperties[] retval = service.listMetadata(queries, APIVERSION);
-			return retval;
-		} catch (Exception e) {
-			System.debug(LoggingLevel.DEBUG, 'Callout caused exception: ');
-			System.debug(LoggingLevel.DEBUG, e.getCause());
-			System.debug(LoggingLevel.DEBUG, e.getMessage());
-			System.debug(LoggingLevel.DEBUG, e.getLineNumber());
-			fetchErrorMessage = e.getMessage();
+		if (service.SessionHeader.sessionId != null) {
+
+			List<MetadataService.ListMetadataQuery> queries = new List<MetadataService.ListMetadataQuery> ();
+			for (String metadataTypeName : metadataTypeNames) {
+				MetadataService.ListMetadataQuery query = new MetadataService.ListMetadataQuery();
+				query.type_x = metadataTypeName;
+				queries.add(query);
+			}
+			try {
+				MetadataService.FileProperties[] retval = service.listMetadata(queries, APIVERSION);
+				return retval;
+			} catch (Exception e) {
+				System.debug(LoggingLevel.DEBUG, 'Callout caused exception: ');
+				System.debug(LoggingLevel.DEBUG, e.getCause());
+				System.debug(LoggingLevel.DEBUG, e.getMessage());
+				System.debug(LoggingLevel.DEBUG, e.getLineNumber());
+				fetchErrorMessage = e.getMessage();
+			}
+		} else {
+			System.debug(LoggingLevel.DEBUG, 'Invalid session detected, skipping operation.');
 		}
 		return null;
 		

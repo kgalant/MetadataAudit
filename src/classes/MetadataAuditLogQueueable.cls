@@ -45,7 +45,7 @@ public class MetadataAuditLogQueueable implements Queueable, Database.AllowsCall
 				Integer runCount = 0;
 				System.debug(LoggingLevel.ERROR, 'Last run: ' + settings.LastRunMetadataType__c);
 				for (Metadata_Audit_Configuration__mdt mymdt : myMDTs) {
-					System.debug(LoggingLevel.DEBUG, 'Looking at MDT: ' + myMDT);
+					System.debug(LoggingLevel.FINEST, 'Looking at MDT: ' + myMDT);
 					if (mymdt.QualifiedApiName == lastRunMdType) {
 						runNext = true;
 					} else if (runNext == true) {
