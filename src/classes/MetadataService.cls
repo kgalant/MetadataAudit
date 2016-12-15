@@ -9056,7 +9056,7 @@ public class MetadataService {
         private String[] field_order_type_info = new String[]{'criteriaBasedRules','ownerRules'};
     }
     public class MetadataPort {
-        public String endpoint_x = URL.getSalesforceBaseUrl().toExternalForm() + '/services/Soap/m/32.0';
+        public String endpoint_x = URL.getSalesforceBaseUrl().toExternalForm().toLowerCase() + '/services/Soap/m/38.0';
         public Map<String,String> inputHttpHeaders_x;
         public Map<String,String> outputHttpHeaders_x;
         public String clientCertName_x;
